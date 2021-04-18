@@ -25,17 +25,20 @@ public class GameLogic {
 		for (int i = 0; i < secret.length(); i++) {
 			digit = secret.charAt(i);
 			
-			// Check if digit is used
-			// Check digit position
-			// Add to cow/bull
-			
+			if (isDigitUsed(digit)) {
+				if(isInRightPosition(digit, i)) {
+					cowsAndBulls[1]++;
+				}
+				
+				cowsAndBulls[0]++;
+			}			
 		}
 		
 		return cowsAndBulls;
 	}
 	
 	public boolean setSecret(String number) {
-		if (this.isNumber(number)) {			
+		if (isNumber(number)) {			
 			secret = number.substring(0, 4);
 			numbersUsed.clear();
 			for (char c : secret.toCharArray()) {
@@ -47,9 +50,11 @@ public class GameLogic {
 	
 	private boolean isDigitUsed(char digit) {
 		return numbersUsed.contains(digit);
+	}	
+	
+	private boolean isInRightPosition(char digit, int position) {
+		return digit == secret.charAt(position);
 	}
-	
-	
 	
 	private boolean isNumber(String string) {
 		if (string == null) return false;
