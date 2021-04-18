@@ -1,4 +1,4 @@
-# Cows and Bulls
+# Cows and Bulls 🐮
 I created this project/game as an exercise to learn software design. There will be no branches and 💩 code may sometimes be pushed, consider yourself warned.
 
 The objective of this game to guess a 4 digit (0-9) **secret** code. Feedback for each guess will be given in the form of COWS and BULLS.
