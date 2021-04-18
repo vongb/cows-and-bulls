@@ -5,7 +5,7 @@ The objective of this game to guess a 4 digit (0-9) **secret** code. Feedback fo
 - A cow means that a correct number was guessed in the WRONG position.
 - A bull means that a correct number was guessed in the CORRECT position.
 
-Example: A secret code of 1234, the guess 1499 would result in 1 BULL (**1**234) and 1 COW (123**4**). 
+Example: A secret code of 1234, the guess 1499 would result in 1 BULL (`1`234) and 1 COW (123`4`). 
 
 ## Assumptions
 These are the assumptions I've made so far:
