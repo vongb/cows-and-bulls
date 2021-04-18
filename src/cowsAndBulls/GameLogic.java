@@ -11,28 +11,37 @@ public class GameLogic {
 	public GameLogic() {
 		secret = "";
 		isSecretCompromised = false;
-		HashSet<Character> numbersUsed;
+		numbersUsed = new HashSet<Character>();
 	}
 	
-	public boolean checkIsSecretCompromised() {
+	public boolean isSecretSet() {
+		return !secret.isEmpty();
+	}
+	
+	public boolean checkIfSecretIsCompromised() {
 		return isSecretCompromised;
 	}
 	
 	public int[] cowsAndBulls(String guess) {
 		int[] cowsAndBulls = new int[2];
+		cowsAndBulls[0] = 0;
+		cowsAndBulls[1] = 0;
 		char digit;
 		
-		for (int i = 0; i < secret.length(); i++) {
-			digit = secret.charAt(i);
+		for (int i = 0; i < guess.length(); i++) {
+			digit = guess.charAt(i);
 			
 			if (isDigitUsed(digit)) {
 				if(isInRightPosition(digit, i)) {
 					cowsAndBulls[1]++;
+				} else {					
+					cowsAndBulls[0]++;
 				}
-				
-				cowsAndBulls[0]++;
 			}			
 		}
+		
+		if (cowsAndBulls[0] == 0 && cowsAndBulls[1] == 4) 
+			isSecretCompromised = true;
 		
 		return cowsAndBulls;
 	}
