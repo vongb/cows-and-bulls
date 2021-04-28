@@ -41,9 +41,35 @@ public class GameLogicTests {
 	}
 	
 	@Test
-	public void testCowsAndBulls() {
-		gameLogic.setSecret("1234"); // should i use another method other than cowsAndBulls()?
-		assertArrayEquals(gameLogic.cowsAndBulls("1499"), [1,1]); // why is this not working
+	public void testCowsAndBullsWith1499() {
+		// since this test is testing cowsAndBulls,
+		// should i use another method other than cowsAndBulls()? 
+		gameLogic.setSecret("1234");
+		
+		int[] actual = gameLogic.cowsAndBulls("1499");
+		int[] expected = new int[]{1,1};
+		
+		assertArrayEquals(expected, actual);
+	}
+	
+	@Test
+	public void testCowsAndBullsWithCorrectGuess() {
+		gameLogic.setSecret("1234");
+		
+		int[] actual = gameLogic.cowsAndBulls("1234");
+		int[] expected = new int[]{4,0};
+		
+		assertArrayEquals(expected, actual);
+	}
+	
+	@Test
+	public void testCowsAndBullsWith5678() {
+		gameLogic.setSecret("1234");
+		
+		int[] actual = gameLogic.cowsAndBulls("5678");
+		int[] expected = new int[]{0,0};
+		
+		assertArrayEquals(expected, actual);
 	}
 	
 	// how do i even test private functions?? should i even care?
