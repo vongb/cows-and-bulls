@@ -24,6 +24,8 @@ public class GameLogic {
 	
 	public int[] cowsAndBulls(String guess) {
 		int[] cowsAndBulls = new int[2];
+		if (!isSecretSet()) return cowsAndBulls;
+		
 		cowsAndBulls[0] = 0;
 		cowsAndBulls[1] = 0;
 		char digit;
